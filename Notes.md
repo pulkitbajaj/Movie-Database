@@ -1,12 +1,13 @@
-1. Activating virtual environment (done)
-2 app.py
-3. Full html, css and javascript of home page
-4. Flask Routing 
-5. Returning Inline HTML
-6. Rendering HTML files using JINJA
-7. Redirecting user to new web pages using web redirection.
-8. Managing session (temporary and permanent)
-9. Login Page
-10. Database Integration.
-11. Authenication and Authorization (Optional)
+1.  Activating virtual environment (done)
+2   app.py (done)
+3.  Login, singup page (design)
+4.  Full html, css and javascript of home page
+5.  Flask Routing 
+6.  Returning Inline HTML
+7.  Rendering HTML files using JINJA
+8.  Redirecting user to new web pages using web redirection.
+9.  Managing session (temporary and permanent)
+10. Login Page
+11. Database Integration.
+12. Authenication and Authorization (Optional)
 
