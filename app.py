@@ -21,16 +21,21 @@ class Login(db.Model):
     email = db.Column(db.String(250), nullable = False)
     password = db.Column(db.String(256), nullable = False)
 
-    def _repr_(self) -> str:
+    def __repr__(self) -> str:
         return f"{self.sno} - {self.username} - {self.email}"
 
 @app.route('/')
 def home():
-    # user = User(fname="abcd", email="abc@gmail.com", password="abc123")
     login=Login(username="abcd", email="abc@gmail.com", password="abc123")                           
     db.session.add(login)
     db.session.commit()
     return render_template("home.html")
+
+@app.route('/show')
+def show():
+    allLogin = Login.query.all()
+    print(allLogin)
+    return "This is show page"
 
 
 if __name__ == "__main__":
