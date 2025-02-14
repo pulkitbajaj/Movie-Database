@@ -27,7 +27,7 @@ class Search(db.Model):
     def __repr__(self) -> str:
         return f"{self.sno} - {self.movie} - {self.date_searched}"
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/home', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
         username = request.form['username']
@@ -54,6 +54,10 @@ def show():
     allLogin = Login.query.all()
     print(allLogin)
     return "This is show page"
+
+@app.route('/')
+def index():
+    return render_template("index.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
