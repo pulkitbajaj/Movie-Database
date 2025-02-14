@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime, timezone
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///login.db"
@@ -7,24 +8,24 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.secret_key = 'supersecretkey'
 db = SQLAlchemy(app)
 
-# class User(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     fname = db.Column(db.String(200), nullable=False)
-#     email = db.Column(db.String(200), nullable=False)
-#     password = db.Column(db.String(200), nullable=False)
-
-#     def __repr__(self) -> str:
-#         return f"{self.fname} - {self.email} - {self.password}"
 
 class Login(db.Model):
-    sno = db.Column(db.Integer, primary_key = True)
+    sno = db.Column(db.Integer)
     username = db.Column(db.String(150), nullable = False)
-    email = db.Column(db.String(250), nullable = False)
+    email = db.Column(db.String(250), nullable = False, primary_key = True)
     password = db.Column(db.String(256), nullable = False)
     cnf_password = db.Column(db.String(256), nullable = False)
 
     def __repr__(self) -> str:
         return f"{self.sno} - {self.username} - {self.email} - {self.password} - {self.cnf_password}"
+
+class Search(db.Model):
+    sno = db.Column(db.Integer, primary_key = True)
+    movie = db.Column(db.String(150), nullable = False)
+    date_searched = db.Column(db.DateTime, default=datetime.now(timezone.utc))
+
+    def __repr__(self) -> str:
+        return f"{self.sno} - {self.movie} - {self.date_searched}"
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -54,6 +55,8 @@ def show():
     print(allLogin)
     return "This is show page"
 
-
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+
