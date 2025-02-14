@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///login.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.secret_key = 'supersecretkey'
 db = SQLAlchemy(app)
 
 # class User(db.Model):
@@ -20,15 +21,31 @@ class Login(db.Model):
     username = db.Column(db.String(150), nullable = False)
     email = db.Column(db.String(250), nullable = False)
     password = db.Column(db.String(256), nullable = False)
+    cnf_password = db.Column(db.String(256), nullable = False)
 
     def __repr__(self) -> str:
-        return f"{self.sno} - {self.username} - {self.email}"
+        return f"{self.sno} - {self.username} - {self.email} - {self.password} - {self.cnf_password}"
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def home():
-    login=Login(username="abcd", email="abc@gmail.com", password="abc123")                           
-    db.session.add(login)
-    db.session.commit()
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+        cnf_password = request.form['cnf_password']
+
+        if password != cnf_password:
+            flash("Password and Confirm Password should be same")
+            print("Passwords do not match")
+            return redirect('/')       
+        else:
+            login=Login(username=username, email=email, password=password, cnf_password=cnf_password)  
+            db.session.add(login)
+            db.session.commit()
+            flash("Registration Successful", "success")
+            print("Registration Successful")
+    allLogin = Login.query.all()
+    print(allLogin)
     return render_template("home.html")
 
 @app.route('/show')
