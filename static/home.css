@@ -9,7 +9,7 @@
 }
 
 body {
-    background: url('login background.jpg') no-repeat center center/cover;
+    background: url('Images/login background.jpg') no-repeat center/cover;
     height: 100vh;
     display: flex;
     justify-content: center;
