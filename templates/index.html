@@ -14,7 +14,7 @@
             <div class="logo"><img src="{{ url_for('static', filename='Images/logo.svg') }} " alt="logo"></div>
             <nav>
                 <ul>
-                    <li><a href="#">HOME</a></li>
+                    <li><a href="index.html">HOME</a></li>
                     <li><a href="#">PRICING</a></li>
                     <li><a href="#">MOVIES</a></li>
                     <li><a href="#">TV SHOWS</a></li>
@@ -32,6 +32,18 @@
             <button class="login-btn"><img src="{{ url_for('static', filename='Images/login-icon.svg') }}" alt="login-icon"></button>
         </div>
     </header>
+    
+    <div class="flash-messages">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <ul>
+            {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+    </div>
     <section class="banner">
         <div class="banner-content">
             <h1>Movie BlockBuster</h1>

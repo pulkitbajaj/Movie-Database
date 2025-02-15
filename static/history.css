@@ -1,0 +1,173 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0c0c0c;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    flex-wrap: wrap;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar .logo img {
+    width: 100px;
+    margin-left: 20px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    left: 132px;
+    /* left: 275px; */
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.join-btn {
+    background-color: black;
+    color: white;
+    padding: 8px 15px;
+    border: 1px solid white;
+    border-radius: 8px;
+    cursor: pointer;
+    position: absolute;
+    right: 76px;
+}
+
+.join-btn a{
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+        left: 0;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar ul {
+        gap: 10px;
+    }
+}
+
+.search-container {
+    color:white;
+    position: relative;
+    width: 300px;
+    left:138px;
+}
+.search-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    color: #ffffff;
+    background-color: #000;
+    border-radius: 25px;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-btn {
+    margin-right: 30px;
+    background-color: black;
+    border-style: none;
+    outline: none;
+    position: relative;
+    /* left: 207px; */
+    left: 36px;
+}
+
+.search-btn img {
+    height: 38px;
+    cursor: pointer;
+}
+
+.login-btn {
+    background-color: black;
+    color: white;
+    padding: 8px 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    color: white;
+}
+
+.table td, .table th {
+    /* padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; */
+    color:white;
+    background-color: black;
+    border: 2px solid rgb(124, 124, 124);
+    text-align: center;
+   
+}
+
+.table th{
+    border-bottom: 3px solid #f3f2f2;
+
+}
+
+.flash-messages {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 65px; 
+}
+
+.flash-messages ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.flash-messages li {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.success {
+    background-color: green;
+    color: white;
+    font-weight: bold;
+}
+
+.danger {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
