@@ -21,9 +21,12 @@
                     <li><a href="#">REVIEWS</a></li>
                 </ul>
             </nav>
-            <form action="/" method="POST">
-                <input type="text" class="form-control" name="movie" id="movie" aria-describedby="emailHelp" placeholder=" Search here...">
-            </form>
+            <div class="search-container">
+                <form action="/" method="POST">
+                    <!-- <input type="text" class="search-input" name="movie" id="movie" aria-describedby="emailHelp" placeholder=" Search here..."> -->
+                    <input type="text" class="search-input" name="movie" id="movie" placeholder="Search...">
+                </form>
+            </div>
             <button class="search-btn"><img src="{{ url_for('static', filename='Images/search-icon.svg') }}" alt="Search"></button>
             <button class="join-btn"><a href="/home">Join Now</a></button>
             <button class="login-btn"><img src="{{ url_for('static', filename='Images/login-icon.svg') }}" alt="login-icon"></button>
@@ -71,7 +74,7 @@
     </section>
 
      <!-- Latest Releases Section -->
-     <section class="latest-releases">
+     <!-- <section class="latest-releases">
         <h2>Latest Releases</h2>
         <div class="carousel">
             <div class="movie">
@@ -103,8 +106,9 @@
             <span class="prev">&#10094;</span>
             <span class="next">&#10095;</span>
         </div>
-    </section>
+    </section> -->
 
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
 
 </body>
 

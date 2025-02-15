@@ -31,8 +31,8 @@ body {
     padding: 0;
     margin: 0;
     position: relative;
-    /* left: 142px; */
-    left: 275px;
+    left: 132px;
+    /* left: 275px; */
 }
 
 .navbar ul li a {
@@ -57,7 +57,7 @@ body {
     text-decoration: none;
 }
 
-.navbar form {
+/* .navbar form {
     display: flex;
     position: relative;
     left: 255px;
@@ -69,6 +69,21 @@ body {
     background-color: #000;
     color: white;
     border: 1px solid white;
+} */
+
+.search-container {
+    color:white;
+    position: relative;
+    width: 300px;
+    left:138px;
+}
+.search-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px;
 }
 
 .search-btn {
@@ -78,7 +93,7 @@ body {
     outline: none;
     position: relative;
     /* left: 207px; */
-    left: 95px;
+    left: 36px;
 }
 
 .search-btn img {
