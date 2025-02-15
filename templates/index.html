@@ -23,7 +23,6 @@
             </nav>
             <div class="search-container">
                 <form action="/" method="POST">
-                    <!-- <input type="text" class="search-input" name="movie" id="movie" aria-describedby="emailHelp" placeholder=" Search here..."> -->
                     <input type="text" class="search-input" name="movie" id="movie" placeholder="Search...">
                 </form>
             </div>
@@ -32,82 +31,53 @@
             <button class="login-btn"><img src="{{ url_for('static', filename='Images/login-icon.svg') }}" alt="login-icon"></button>
         </div>
     </header>
-    <section class="banner">
+    <section class="banner"> 
+        <img id = "banner-image" src="https://m.media-amazon.com/images/M/MV5BYzYyN2FiZmUtYWYzMy00MzViLWJkZTMtOGY1ZjgzNWMwN2YxXkEyXkFqcGc@._V1_.jpg" alt="Images">
+
         <div class="banner-content">
-            <h1>Movie BlockBuster</h1>
-            <div class = "description"><p>OPPENHEIMER (2023) is a biographical thriller about J. Robert Oppenheimer, the physicist who led the creation of the atomic bomb, exploring his genius, moral struggles, and political downfall.</p></div>
+            <h1 id ="Movie_Title">Movie BlockBuster</h1>
+            <div class = "description"><p id = "mv-desc">OPPENHEIMER (2023) is a biographical thriller about J. Robert Oppenheimer, the physicist who led the creation of the atomic bomb, exploring his genius, moral struggles, and political downfall.</p></div>
             <button class="button">Watch Now</button>
             <button class="more-details">More Details</button>
         </div>
-        
     </section>
+
     <section class="categories">
         <div class="category"><h1>HIDDEN GEMS</h1> <img src="{{ url_for('static', filename='Images/stars.svg') }}" alt="stars"></div>
         <div class="category"><h1>FEATURED NEWS</h1> <img src="{{ url_for('static', filename='Images/stars.svg') }}" alt="stars"></div>
         <div class="category"><h1>AUDIENCE PICKS</h1> <img src="{{ url_for('static', filename='Images/stars.svg') }}" alt="stars"></div>
         <div class="category"><h1>TRENDING MOVIES</h1> <img src="{{ url_for('static', filename='Images/stars.svg') }}" alt="stars"></div>
     </section>
+
+
+    
     <section class="top-movies">
         <h1>Top 10 Movies</h1>
         <div class="movie-container">
             <div class="movie">
                 <span class="rank">1</span>
-                <img src="{{ url_for('static', filename='Images/exorcist.svg') }}" alt="The Exorcist">
+                <img id = "1" src="{{ url_for('static', filename='Images/exorcist.svg') }}" alt="The Exorcist">
             </div>
             <div class="movie">
                 <span class="rank">2</span>
-                <img src="{{ url_for('static', filename='Images/friends.svg') }}" alt="Friends">
+                <img id = "2" src="{{ url_for('static', filename='Images/friends.svg') }}" alt="Friends">
             </div>
             <div class="movie">
                 <span class="rank">3</span>
-                <img src="{{ url_for('static', filename='Images/avengers.svg') }}" alt="Avengers">
+                <img id = "3" src="{{ url_for('static', filename='Images/avengers.svg') }}" alt="Avengers">
             </div>
             <div class="movie">
                 <span class="rank">4</span>
-                <img src="{{ url_for('static', filename='Images/squid_game.svg') }}" alt="Squid Game">
+                <img id = "4" src="{{ url_for('static', filename='Images/squid_game.svg') }}" alt="Squid Game">
             </div>
             <div class="movie">
                 <span class="rank">5</span>
-                <img src="{{ url_for('static', filename='Images/alice.svg') }}" alt="Alice in Borderland">
+                <img id = "5" src="{{ url_for('static', filename='Images/alice.svg') }}" alt="Alice in Borderland">
             </div>
         </div>
     </section>
 
-     <!-- Latest Releases Section -->
-     <!-- <section class="latest-releases">
-        <h2>Latest Releases</h2>
-        <div class="carousel">
-            <div class="movie">
-                <img src="princess_yako.jpg" alt="Princess Yako">
-                <div class="rating">8.4</div>
-                <p class="title">Princess Yako</p>
-                <p class="details">1997 • Action</p>
-            </div>
-            <div class="movie">
-                <img src="ghost.jpg" alt="Ghost">
-                <div class="rating">6.9</div>
-                <p class="title">Ghost</p>
-                <p class="details">2019 • Horror</p>
-            </div>
-            <div class="movie">
-                <img src="spirit.jpg" alt="Spirit">
-                <div class="rating">9.0</div>
-                <p class="title">Spirit</p>
-                <p class="details">2014 • Drama</p>
-            </div>
-            <div class="movie">
-                <img src="captain_marvel.jpg" alt="Captain Marvel">
-                <div class="rating">7.1</div>
-                <p class="title">Captain Marvel</p>
-                <p class="details">2019 • Action</p>
-            </div>
-        </div>
-        <div class="carousel-controls">
-            <span class="prev">&#10094;</span>
-            <span class="next">&#10095;</span>
-        </div>
-    </section> -->
-
+     
     <script src="{{ url_for('static', filename='index.js') }}"></script>
 
 </body>
