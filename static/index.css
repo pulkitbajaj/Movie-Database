@@ -31,7 +31,8 @@ body {
     padding: 0;
     margin: 0;
     position: relative;
-    left: 142px;
+    /* left: 142px; */
+    left: 275px;
 }
 
 .navbar ul li a {
@@ -51,13 +52,33 @@ body {
     right: 76px;
 }
 
+.join-btn a{
+    color: white;
+    text-decoration: none;
+}
+
+.navbar form {
+    display: flex;
+    position: relative;
+    left: 255px;
+}
+
+.navbar form input{
+    border-radius: 20px;
+    height: 30px;
+    background-color: #000;
+    color: white;
+    border: 1px solid white;
+}
+
 .search-btn {
     margin-right: 30px;
     background-color: black;
     border-style: none;
     outline: none;
     position: relative;
-    left: 207px;
+    /* left: 207px; */
+    left: 95px;
 }
 
 .search-btn img {

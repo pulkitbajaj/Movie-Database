@@ -10,9 +10,9 @@ db = SQLAlchemy(app)
 
 
 class Login(db.Model):
-    sno = db.Column(db.Integer)
+    sno = db.Column(db.Integer, primary_key = True, autoincrement = True)
     username = db.Column(db.String(150), nullable = False)
-    email = db.Column(db.String(250), nullable = False, primary_key = True)
+    email = db.Column(db.String(250), nullable = False, unique = True)
     password = db.Column(db.String(256), nullable = False)
     cnf_password = db.Column(db.String(256), nullable = False)
 
@@ -38,7 +38,7 @@ def home():
         if password != cnf_password:
             flash("Password and Confirm Password should be same")
             print("Passwords do not match")
-            return redirect('/')       
+            return redirect('/home')       
         else:
             login=Login(username=username, email=email, password=password, cnf_password=cnf_password)  
             db.session.add(login)
@@ -48,6 +48,19 @@ def home():
     allLogin = Login.query.all()
     print(allLogin)
     return render_template("home.html")
+
+@app.route('/', methods=['GET', 'POST'])
+def search():
+    if request.method == 'POST':
+        movie = request.form['movie']   
+        search = Search(movie=movie)
+        db.session.add(search)
+        db.session.commit()
+        flash("Search Successful", "success")
+        print("Search Successful")
+    allSearch = Search.query.all()
+    print(allSearch)
+    return render_template("index.html")
 
 @app.route('/show')
 def show():

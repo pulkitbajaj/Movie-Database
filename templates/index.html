@@ -21,8 +21,11 @@
                     <li><a href="#">REVIEWS</a></li>
                 </ul>
             </nav>
+            <form action="/" method="POST">
+                <input type="text" class="form-control" name="movie" id="movie" aria-describedby="emailHelp" placeholder=" Search here...">
+            </form>
             <button class="search-btn"><img src="{{ url_for('static', filename='Images/search-icon.svg') }}" alt="Search"></button>
-            <button class="join-btn">Join Now</button>
+            <button class="join-btn"><a href="/home">Join Now</a></button>
             <button class="login-btn"><img src="{{ url_for('static', filename='Images/login-icon.svg') }}" alt="login-icon"></button>
         </div>
     </header>
