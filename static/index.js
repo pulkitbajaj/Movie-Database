@@ -93,50 +93,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
             console.log("API Response:", result);
 
-        // Call function to update background
-        updateBackground(result);
-    } catch (error) {
-        console.error("❌ Error fetching API:", error);
-    }
-}
-
-function updateBackground(result) {
-    try {
-        let backgroundImg = document.getElementsByClassName("banner")[0];
-
-        if (!backgroundImg) {
-            throw new Error("❌ Element with class 'banner' not found");
+            // Call function to update background
+            updateBackground(result);
+        } catch (error) {
+            console.error("❌ Error fetching API:", error);
         }
+    }
 
-        // Use the correct field from API response
-        const imageUrl = result.primaryImage; // Correct field!
+    function updateBackground(result) {
+        try {
+            let backgroundImg = document.getElementsByClassName("banner")[0];
 
-        if (imageUrl) {
-            backgroundImg.style.backgroundImage = `url('${imageUrl}')`;
-            backgroundImg.style.backgroundSize = "contain";
-            backgroundImg.style.backgroundPosition = "center";
-            console.log("✅ Background updated with:", imageUrl);
-        } else {
-            console.warn("⚠️ Image URL is missing in the API response.");
+            if (!backgroundImg) {
+                throw new Error("❌ Element with class 'banner' not found");
+            }
+
+            // Use the correct field from API response
+            const imageUrl = result.primaryImage; // Correct field!
+
+            if (imageUrl) {
+                backgroundImg.style.backgroundImage = `url('${imageUrl}')`;
+                backgroundImg.style.backgroundSize = "contain";
+                backgroundImg.style.backgroundPosition = "center";
+                console.log("✅ Background updated with:", imageUrl);
+            } else {
+                console.warn("⚠️ Image URL is missing in the API response.");
+            }
+
+        } catch (error) {
+            console.error("❌ Error:", error);
         }
-
-    } catch (error) {
-        console.error("❌ Error:", error);
-    }
     }
 
-    banner('tt1375666');
+    banner('tt15398776');
 
 
 
     const topMovies = 'https://imdb236.p.rapidapi.com/imdb/most-popular-movies';
-const options = {
-	method: 'GET',
-	headers: {
-		'x-rapidapi-key': 'f7fa5f4e6bmsh11ab2dcaf3eb9bbp1be04bjsn67365ee606c9',
-		'x-rapidapi-host': 'imdb236.p.rapidapi.com'
-	}
-};
+    const options = {
+        method: 'GET',
+        headers: {
+            'x-rapidapi-key': 'f7fa5f4e6bmsh11ab2dcaf3eb9bbp1be04bjsn67365ee606c9',
+            'x-rapidapi-host': 'imdb236.p.rapidapi.com'
+        }
+    };
     async function top10Movies() {
         try {
             const response = await fetch(topMovies, options);
