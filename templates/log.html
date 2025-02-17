@@ -42,5 +42,15 @@
             Don't have an account? <a href="home">Sign in</a>
         </div>
     </div>
+    <script>
+        // Hide flash messages after 5 seconds
+        setTimeout(function() {
+                var flashMessages = document.querySelector('.flash-messages');
+                if (flashMessages) {
+                    flashMessages.style.display = 'none';
+                }
+            }, 5000);
+    
+    </script>
 </body>
 </html>

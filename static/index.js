@@ -174,5 +174,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Hide flash messages after 5 seconds
+    setTimeout(function() {
+        var flashMessages = document.querySelector('.flash-messages');
+        if (flashMessages) {
+            flashMessages.style.display = 'none';
+        }
+    }, 5000);
+
+    setTimeout();
 
 });
