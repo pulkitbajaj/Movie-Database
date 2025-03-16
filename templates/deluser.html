@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='log.css') }}">
+    <title>Delete account</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='deluser.css') }}">
 </head>
 <body>
 
@@ -25,7 +26,7 @@
         <h1>Lights, Camera, Discover</h1>
         <pre></pre>
         <h2>Login</h2>
-        <form action="/log" method="POST">
+        <form action="/deluser" method="POST">
             <div class="input-group">
                 <input type="email" class="form-control" placeholder="Email" name="email" id="email">
                 <pre> </pre>
@@ -35,17 +36,12 @@
                 <input type="password" class="form-control" placeholder="Password" name="password" id="password">
                 <pre> </pre>
             </div>
-            <button type="submit" class="btn-login">Login</button>
-        </form>
-        <div class="sign-up">
-            <!-- <pre></pre> -->
-             
-            Don't have an account? <a href="home">Sign in</a><pre></pre>
-            Already have an account? <a href="deluser">Delete Account</a>
+            <button type="submit" class="btn-login">Delete account</button>
 
-            <!-- <pre> </pre>
-            Delete account <a href="home">Sign in</a> -->
-        </div>
+            <p>Don't have an account? <a href="home">Sign in</a><pre></pre>
+            Already have an account? <a href="log">Log In</a></p>
+        </form>
+     
     </div>
     <script>
         // Hide flash messages after 5 seconds
@@ -57,5 +53,7 @@
             }, 5000);
     
     </script>
+</body>
+</html>
 </body>
 </html>
