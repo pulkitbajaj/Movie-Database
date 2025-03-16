@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     searchButton.addEventListener('click', () => {
         let movie = search.value;
         movieID(movie);
+        bannerId(movie)
     });
 
     search.addEventListener('keypress', (e) => {
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
             e.preventDefault();
             let movie = search.value;
             movieID(movie);
+            bannerId(movie)
         }
     });
 
@@ -34,7 +36,24 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    async function bannerId(movie) {
+        const url = `http://www.omdbapi.com/?t=${movie}&apikey=13510fc9`
+        try {
+            const response = await fetch(url);
+            const result = await response.json();
+            // console.log(result)
+            console.log(result.imdbID)
+            banner(result.imdbID)
+        } catch (error) {
+            console.log(error)
 
+        }
+    }
+
+    // if(search.value){
+
+    //     console.log(movieID(search.value))
+    // }
     async function fetchData(imdbID) {
 
         const url = `https://imdb236.p.rapidapi.com/imdb/${imdbID}`;
@@ -156,6 +175,40 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     top10Movies();
+
+
+    async function latestReleases(){
+
+        
+        const url = 'https://imdb236.p.rapidapi.com/imdb/upcoming-releases?countryCode=IN&type=MOVIE';
+        const options = {
+            method: 'GET',
+            headers: {
+                'x-rapidapi-key': 'f7fa5f4e6bmsh11ab2dcaf3eb9bbp1be04bjsn67365ee606c9',
+                'x-rapidapi-host': 'imdb236.p.rapidapi.com'
+            }
+        };
+        
+        try {
+            const response = await fetch(url, options);
+            const result = await response.json();
+            console.log("Latest Releases API")
+            console.log(result);
+            console.log(result[1].titles[0].primaryImage)
+
+            for (let i = 0; i < 5; i++) {
+                let uc = document.getElementById((i + 6).toString());
+                uc.src = result[1].titles[i].primaryImage;
+                
+            }
+        } catch (error) {
+            console.error(error);
+        }
+        
+    }
+
+    latestReleases()
+
 
     async function sendMovieDataToBackend(imdbID) {
         const url = '/https://imdb236.p.rapidapi.com/imdb/save_movie';
