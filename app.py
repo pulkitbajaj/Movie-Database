@@ -31,7 +31,7 @@ class Signup(db.Model):
 # Model for Search
 class Search(db.Model):
     sno = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    movie = db.Column(db.String(150), nullable=False)
+    movie = db.Column(db.String(150), nullable=False)   
     date_searched = db.Column(db.DateTime, default=datetime.now(timezone.utc))
 
     def __repr__(self) -> str:
@@ -125,6 +125,46 @@ def delete(sno):
     db.session.commit()
     flash("Record deleted successfully", "success")
     return redirect("/history")
+
+
+# @app.route('/deluser', methods=['GET', 'POST'])
+# def deluser():
+#     if request.method == 'POST':
+#         email = request.form['email']
+#         password = request.form['password']
+        
+#         user = Login.query.filter_by(email=email, password=password).first()
+#         if user:
+#             flash("Account deleted successfully", "success")
+#             print("Account deleted successfully")
+#             return redirect(url_for('index'))
+#         else:
+#             flash("Email or password do not match", "danger")
+#             print("Email or password do not match")
+#             return redirect('/deluser')
+#     return render_template("deluser.html")
+
+
+
+@app.route('/deluser', methods=['GET', 'POST'])
+def deluser():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        
+        user = Login.query.filter_by(email=email, password=password).first()
+        if user:
+            db.session.delete(user)  # Delete the user from the database
+            db.session.commit()  # Commit the changes
+            flash("Account deleted successfully", "success")
+            print("Account deleted successfully")
+            return redirect(url_for('index'))
+        else:
+            flash("Email or password do not match", "danger")
+            print("Email or password do not match")
+            return redirect('/deluser')
+    return render_template("deluser.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
