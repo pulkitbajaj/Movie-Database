@@ -341,6 +341,47 @@ body {
     z-index: 0;
 }
 
+
+.latest-movies {
+    background-color: #111;
+    padding: 20px;
+    border-radius: 10px;
+    width: 95%;
+    margin: 20px auto;
+}
+
+.latest-movies h1 {
+    text-align: left;
+    margin-left: 20px;
+    font-size: 35px;
+}
+
+.latest-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap:20px;
+    position: relative;
+}
+
+.latest {
+    position: relative;
+    display: inline-block;
+}
+
+.latest img {
+    width: 189px;
+    height: 264px;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+    
+}
+
+.latest img:hover {
+    transform: scale(1.1);
+}
+
+
 /* Media Queries */
 @media (max-width: 768px) {
     .navbar ul {
