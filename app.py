@@ -56,6 +56,9 @@ def home():
             db.session.commit()
             flash("Registration Successful", "success")
             print("Registration Successful")
+            return redirect(url_for('index'))       
+
+            
     allLogin = Login.query.all()
     print(allLogin)
     return render_template("home.html")
