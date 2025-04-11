@@ -111,11 +111,18 @@
             </div>
             <div class="latest">
                 <!-- <span class="rank">5</span> -->
-                <img id = "10" src="{{ url_for('static', filename='Images/alice.svg') }}" alt="Alice in Borderland">
-            </div>
+                <!-- <img id = "10" src="{{ url_for('static', filename='Images/alice.svg') }}" alt="Alice in Borderland">
+            </div> -->
         </div>
     </section>
-     
+     <script>
+        setTimeout(function() {
+                var flashMessages = document.querySelector('.flash-messages');
+                if (flashMessages) {
+                    flashMessages.style.display = 'none';
+                }
+            }, 5000);
+     </script>
     <script src="{{ url_for('static', filename='index.js') }}"></script>
 
 </body>
